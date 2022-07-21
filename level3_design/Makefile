@@ -4,10 +4,10 @@ TOPLEVEL_LANG ?= verilog
 
 PWD=$(shell pwd)
 
-VERILOG_SOURCES = $(PWD)/               # provide your design path
+VERILOG_SOURCES = $(PWD)/ RV32I.v              # provide your design path
 
-TOPLEVEL :=           # design file
-MODULE   :=     # test file
+TOPLEVEL :=    RV32I       # design file
+MODULE   :=   test_RV32I  # test file
 
 include $(shell cocotb-config --makefiles)/Makefile.sim
 
