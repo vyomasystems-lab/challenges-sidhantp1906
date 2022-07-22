@@ -130,11 +130,12 @@ initial
       mem[14] = 32'h023100b3; // mul r1,r2,r3
       mem[15] = 32'h0073e3b3; // or r7,r7,r7 dummy instr to avoid data hazard
       mem[16] = 32'h0083a303; // lw r6,8(r7)	
-		HALTED = 1; ````============> Bug ** Halted is made intentionally high which makes processor to halt until idle condition********````
+		HALTED = 1; //============> Bug ** Halted is made intentionally high which makes processor to halt until idle condition********
 		pc = 0;
 		TAKEN_BRANCH = 0;
 		end
 ```
+- Halt is raised high initialy due to interrupts which causes exception instruction and leds to processor to hold mode until idle condition arrives again.              - To make processor to start replace ```HALTED = 1``` with ```HALTED = 0```. 
 #### Debug Information
 #### Verification Stractegy
 #### Is The Verification Complete?
