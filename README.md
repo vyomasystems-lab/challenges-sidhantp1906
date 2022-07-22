@@ -185,4 +185,9 @@ The updated design is checked in as RV32I.v
 
 #### Is The Verification Complete?
 
-```YES``` , As [Debug Information](https://github.com/vyomasystems-lab/challenges-sidhantp1906/blob/master/README.md#debug-information) shows the correctness of design after **BUGS** identified and corrected which were very important to check the functionality of **RISC-V RV32I**.
+```YES``` , As [Debug Information](https://github.com/vyomasystems-lab/challenges-sidhantp1906/blob/master/README.md#debug-information) shows the correctness of design after **BUGS** identified and corrected which were very important to check the functionality of **RISC-V RV32I**. Thanks to 
+[Vyoma's UpTickPro](https://vyomasystems.com) for providing such an *interesting* environment to perform fucntional verification of design based on python library called [CoCoTb](https://www.cocotb.org/) and also special thanks to [VSD](https://www.vlsisystemdesign.com/) for creating such an *amazing* hackathons which enables students like me to learn explore more.                                                                                                                                
+```
+**Thank You**
+**Sidhant Priyadarshi**
+```
