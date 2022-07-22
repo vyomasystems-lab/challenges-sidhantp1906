@@ -64,10 +64,10 @@ This shows that observed output matches with expected output hence **No bug** fo
 
 This shows that observed output does not matches with expected output hence possible **bug** found                                                                                                                                                                      
 ##### Test Case 2
-- PC Value is 0x00000004.
-- Memory location fetched is 0x00000004 which has 0x40308133 i.e., sub r2,r1,r3 .
+- PC Value is 0x00000000.
+- Memory location fetched is 0x00000000 which has 0x00308133 i.e., add r2,r1,r3.
 - Expected output mem_wb_aluout is 4.
-- Observed output mem_wb_aluout is 2.                                                                                                                                   
+- Observed output mem_wb_aluout is 0.                                                                                                                                   
 - This shows that observed output does not matches with expected output hence possible **bug** found.
 ##### Test Case3
 #### Bugs Found
