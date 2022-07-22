@@ -43,6 +43,11 @@ assert dut.mem_wb_aluout.value == 4, "Test Failed :Got {out} expected 4".format(
 
 #### Test Scenario
 ##### Test Case 1
+- PC Value is 0x00000000.
+- Memory location accessed is 0x00000000 which has 0x00308133 i.e., add r2,r1,r3.
+- Expected output mem_wb_aluout is 4.
+- Observed output mem_wb_aluout is 2.
+This shows that observed output does not matches with expected output hence possible **bug** found.
 ##### Test Case 2
 ##### Test Case3
 #### Bugs Found
