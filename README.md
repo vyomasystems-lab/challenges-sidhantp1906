@@ -22,16 +22,23 @@ The [CoCoTb](https://www.cocotb.org/) based Python test is developed as explaine
 
 The values are assigned to the input port using 
 ```
-dut.a.value = 7
-dut.b.value = 5
+clock = Clock(dut.clk1, 10, units="us")  # Create a 10us period clock on port clk1
+    cocotb.start_soon(clock.start()) 
+
+    await Timer(5,units = 'us') # To phase shift clk2 by 180 degree
+
+    clock = Clock(dut.clk2, 10, units="us")  # Create a 10us period clock on port clk2 
+    cocotb.start_soon(clock.start()) 
+
+    await Timer(30,units = 'us') # Wait for the output to propogate
+    await RisingEdge(dut.clk1) # Wait for the next positive edge of clock1
 ```
 
 The assert statement is used for comparing the adder's outut to the expected value.
 
 The following error is seen:
 ```
-assert dut.sum.value == A+B, "Adder result is incorrect: {A} + {B} != {SUM}, expected value={EXP}".format(
-                     AssertionError: Adder result is incorrect: 7 + 5 != 2, expected value=12
+assert dut.mem_wb_aluout.value == 4, "Test Failed :Got {out} expected 4".format(out=int(dut.mem_wb_aluout.value))
 ```
 
 #### Test Scenario
