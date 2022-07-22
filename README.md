@@ -162,4 +162,5 @@ Updating the design and re-running the test makes the test pass.
 
 The updated design is checked in as RV32I.v
 #### Verification Stractegy
+RISC-V RV32I Design which is implemented by [Sidhant Priyadarshi](https://github.com/sidhantp1906/RV32I) (i.e.,Me)
 #### Is The Verification Complete?
