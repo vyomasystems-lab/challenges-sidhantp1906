@@ -162,5 +162,5 @@ Updating the design and re-running the test makes the test pass.
 
 The updated design is checked in as RV32I.v
 #### Verification Stractegy
-RISC-V RV32I Design which is implemented by [Sidhant Priyadarshi](https://github.com/sidhantp1906/RV32I) (i.e.,Me)
+RISC-V RV32I Design which is implemented by [Sidhant Priyadarshi](https://github.com/sidhantp1906/RV32I) (i.e.,Me) works for very few of the instructions like add, sub, div, load, store, etc needs to be verified for its working. So, forced the instructions in code memory for 17 locations and initialized the pc to 0x0 to start the fetch from 0x0th location which first executes add instruction which adds content of *r1* and *r3 and then stores the data back to register *r2*, To execute and write back the data to destination register *r3* it takes 5 clock cycles but this design has two clock with 180 Degree of phase shift hence data is written back to *r3* at 4th clock cycle of *clk1*.                                                  
 #### Is The Verification Complete?
