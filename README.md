@@ -156,5 +156,7 @@ end
 ```
 
 #### Debug Information
+Updating the design and re-running the test makes the test pass.
+The updated design is checked in as RV32I.v
 #### Verification Stractegy
 #### Is The Verification Complete?
