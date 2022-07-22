@@ -176,7 +176,11 @@ The updated design is checked in as RV32I.v
 <img src="https://user-images.githubusercontent.com/60102705/180502265-f643cc3b-35ac-4bea-aa58-2da7716b2a7c.png" style=" width:540px ; height:360px "  >
 
 - Below image represents the failure of second test case. This insertion checks whether if *HALT* is made high then design stops working or not.
+
 <img src="https://user-images.githubusercontent.com/60102705/180504113-312695df-2f42-4012-b8e0-1baceecebd3f.png" style=" width:540px ; height:360px "  >
 
+- Below image represents the failure of third test case. This checks the pre-fetch working of design that is when there is stuck at fault in *PC(Program Counter)* then it is stucked at present location or not so here *PC* value is not incremented due to *buggy design* then it is stucked at location *0x00000000* itself and perform only first instruction and keeps the *mem_wb_aluout* value constant to *4*.
+
+<img src="https://user-images.githubusercontent.com/60102705/180504853-fefa0f6d-4608-44ac-97c7-e67c9f66a5a5.png" style=" width:540px ; height:360px "  >
 
 #### Is The Verification Complete?
