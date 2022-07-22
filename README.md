@@ -104,6 +104,37 @@ endcase
 end
 ```
 Need to replace ```^``` operator with ```+``` operator.
+
+##### Test Case 3
+```
+initial
+		begin :map
+		integer i;
+		for(i=0;i<32;i=i+1)
+		Reg[i] = i;
+		
+	    mem[0] = 32'h00308133; // add r2,r1,r3
+      mem[1] = 32'h0073e3b3; // or r7,r7,r7 dummy instr to avoid data hazard 
+      mem[2] = 32'h40308133; // sub r2,r1,r3 
+      mem[3] = 32'h0073e3b3; // or r7,r7,r7 dummy instr to avoid data hazard 
+      mem[4] = 32'h40308133; // sub r2,r1,r3
+      mem[5] = 32'h00528213; // addi r4 r5,#5
+      mem[6] = 32'h0083a303; // lw r6,8(r7)
+      mem[7] = 32'h0073e3b3; // or r7,r7,r7 dummy instr to avoid data hazard
+      mem[8] = 32'h023100b3; // mul r1,r2,r3
+      mem[9] = 32'h0073e3b3; // or r7,r7,r7 dummy instr to avoid data hazard 
+      mem[10] = 32'h40308133; // sub r2,r1,r3
+      mem[11] = 32'h00528213; // addi r4 r5,#5
+      mem[12] = 32'h0083a303; // lw r6,8(r7)
+      mem[13] = 32'h0073e3b3; // or r7,r7,r7 dummy instr to avoid data hazard
+      mem[14] = 32'h023100b3; // mul r1,r2,r3
+      mem[15] = 32'h0073e3b3; // or r7,r7,r7 dummy instr to avoid data hazard
+      mem[16] = 32'h0083a303; // lw r6,8(r7)	
+		HALTED = 1; ````============> Bug ** Halted is made intentionally high which makes processor to halt until idle condition********````
+		pc = 0;
+		TAKEN_BRANCH = 0;
+		end
+```
 #### Debug Information
 #### Verification Stractegy
 #### Is The Verification Complete?
