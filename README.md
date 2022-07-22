@@ -1,6 +1,5 @@
-# RISC-V RV32I Design Verification
-## challenges-sidhantp1906
-
+# challenges-sidhantp1906
+## RISC-V RV32I Design Verification
 ## Table of Content
 - [Abstract](###Abstract)
 - [Verification Environment](###Verification%20Environment)
