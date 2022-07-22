@@ -2,7 +2,7 @@
 ## challenges-sidhantp1906
 
 ## Table of Content
--[Abstract](###Abstract)
--[Verification Environment](###Verification%%Environment)
+- [Abstract](###Abstract)
+- [Verification Environment](###Verification%20Environment)
 ### Abstract
 ### Verification Environment
