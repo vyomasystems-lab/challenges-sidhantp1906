@@ -95,7 +95,7 @@ This shows that observed output does not matches with expected output hence poss
 ```
 7'b0000000:begin
 case(opcode_2)
-ADD: ex_mem_aluout <= #2 id_ex_a ^ id_ex_b; // Bug ** This should be Additon operation but it does XOR operation ********
+ADD: ex_mem_aluout <= #2 id_ex_a ^ id_ex_b; //============>Bug ** This should be Additon operation but it does XOR operation ********
 AND: ex_mem_aluout <= #2 id_ex_a & id_ex_b;
 OR : ex_mem_aluout <= #2 id_ex_a | id_ex_b;
 SLT: ex_mem_aluout <= #2 id_ex_a < id_ex_b;
@@ -105,7 +105,7 @@ end
 ```
 Need to replace ```^``` operator with ```+``` operator.
 
-##### Test Case 3
+##### Test Case 2
 ```
 initial
 		begin :map
