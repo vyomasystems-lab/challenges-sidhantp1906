@@ -136,6 +136,25 @@ initial
 		end
 ```
 - Halt is raised high initialy due to interrupts which causes exception instruction and leds to processor to hold mode until idle condition arrives again.              - To make processor to start replace ```HALTED = 1``` with ```HALTED = 0```. 
+##### Test Case 3
+```
+begin
+if_id_ir <= #2 mem[pc];
+if_id_npc <= #2 pc; //============> Bug ** PC Does not increments by 4Bytes address results in single instruction execution***** 
+pc <= #2 pc; //============> Bug ** PC Does not increments by 4Bytes address results in single instruction execution*****
+end
+```
+This is pre-fetch condition where instructions are fetched from code memory every clock cycle to improve speed but here due to **bug** that is pc is not increamented it leads to single instruction execution that is '''add  r2,r1,r3'''.
+To avoid this replace with below code.
+
+```
+begin
+if_id_ir <= #2 mem[pc];
+if_id_npc <= #2 pc + 4;
+pc <= #2 pc + 4; 
+end
+```
+
 #### Debug Information
 #### Verification Stractegy
 #### Is The Verification Complete?
