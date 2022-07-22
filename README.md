@@ -15,7 +15,9 @@ verification methodology CoCoTb.
 
 #### Verification Environment
 The verification environment is setup using [Vyoma's UpTickPro](https://vyomasystems.com) provided for the hackathon.
-<div style="width:60px ; height:60px">
+
+<img src="https://user-images.githubusercontent.com/60102705/180488717-b51b86b1-741e-4da8-9350-320dd270bfcf.png" style=" width:60px ; height:60px "  >
+
 ![setupvyoma](https://user-images.githubusercontent.com/60102705/180488717-b51b86b1-741e-4da8-9350-320dd270bfcf.png)
 
 
