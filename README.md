@@ -157,6 +157,9 @@ end
 
 #### Debug Information
 Updating the design and re-running the test makes the test pass.
+
+<img src="https://user-images.githubusercontent.com/60102705/180498543-155cc545-d287-4503-859c-0afcbf812b96.png" style=" width:640px ; height:360px "  >
+
 The updated design is checked in as RV32I.v
 #### Verification Stractegy
 #### Is The Verification Complete?
