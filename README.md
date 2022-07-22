@@ -44,11 +44,27 @@ assert dut.mem_wb_aluout.value == 4, "Test Failed :Got {out} expected 4".format(
 #### Test Scenario
 ##### Test Case 1
 - PC Value is 0x00000000.
-- Memory location accessed is 0x00000000 which has 0x00308133 i.e., add r2,r1,r3.
+- Memory location fetched is 0x00000000 which has 0x00308133 i.e., add r2,r1,r3.
 - Expected output mem_wb_aluout is 4.
 - Observed output mem_wb_aluout is 2.                                                                                                                                   
-This shows that observed output does not matches with expected output hence possible **bug** found.
+- This shows that observed output does not matches with expected output hence possible **bug** found.
+                                                                                                                                                                      
+- PC Value is 0x00000004.
+- Memory location fetched is 0x00000004 which has 0x40308133 i.e., sub r2,r1,r3 .
+- Expected output mem_wb_aluout is -2.
+- Observed output mem_wb_aluout is -2.                                                                                                                                 
+- This shows that observed output matches with expected output hence **No bug** found
+                                                                                                                                                                       
+ - PC Value is 0x00000008.
+- Memory location fetched is 0x00000008 which has 0x023100b3 i.e., mul r1,r2,r3 .
+- Expected output mem_wb_aluout is 12. //As R2 becomes 4 after first addition instruction
+- Observed output mem_wb_aluout is 6. //As R2 becomes 2 after first buggy addition instruction                                                                         - This shows that observed output does not matches with expected output hence possible **bug** found                                                                                                                                                                      
 ##### Test Case 2
+- PC Value is 0x00000004.
+- Memory location fetched is 0x00000004 which has 0x40308133 i.e., sub r2,r1,r3 .
+- Expected output mem_wb_aluout is 4.
+- Observed output mem_wb_aluout is 2.                                                                                                                                   
+- This shows that observed output does not matches with expected output hence possible **bug** found.
 ##### Test Case3
 #### Bugs Found
 #### Debug Information
