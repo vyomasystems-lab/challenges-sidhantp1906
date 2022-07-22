@@ -91,6 +91,19 @@ This shows that observed output does not matches with expected output hence **bu
 
 This shows that observed output does not matches with expected output hence possible **bug** found          
 #### Bugs Found
+##### Test Case 1
+```
+7'b0000000:begin
+case(opcode_2)
+ADD: ex_mem_aluout <= #2 id_ex_a ^ id_ex_b; // Bug ** This should be Additon operation but it does XOR operation ********
+AND: ex_mem_aluout <= #2 id_ex_a & id_ex_b;
+OR : ex_mem_aluout <= #2 id_ex_a | id_ex_b;
+SLT: ex_mem_aluout <= #2 id_ex_a < id_ex_b;
+default: ex_mem_aluout <= #2 32'h00000000;
+endcase
+end
+```
+Need to replace ```^``` operator with ```+``` operator.
 #### Debug Information
 #### Verification Stractegy
 #### Is The Verification Complete?
