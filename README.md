@@ -42,6 +42,9 @@ assert dut.mem_wb_aluout.value == 4, "Test Failed :Got {out} expected 4".format(
 ```
 
 #### Test Scenario
+##### Test Case 1
+##### Test Case 2
+##### Test Case3
 #### Bugs Found
 #### Debug Information
 #### Verification Stractegy
