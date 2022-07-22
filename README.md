@@ -169,6 +169,6 @@ The updated design is checked in as RV32I.v
 
 - To verify the above functionality i have forced the initial values as discussed above and then generated *clk1 and clk2* with phase difference of 180 Degree and after *30us* of delay at *positive edge of clk1* assertion is made to check whether *mem_wb_aluout* equals to *4* or not. If it is not equal it will generate thr failure report with correct value displaying.
 
-<img src="https://user-images.githubusercontent.com/60102705/180502265-f643cc3b-35ac-4bea-aa58-2da7716b2a7c.png" style=" width:640px ; height:360px "  >
+<img src="https://user-images.githubusercontent.com/60102705/180502265-f643cc3b-35ac-4bea-aa58-2da7716b2a7c.png" style=" width:540px ; height:360px "  >
 
 #### Is The Verification Complete?
