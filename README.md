@@ -167,7 +167,10 @@ The updated design is checked in as RV32I.v
 ```add r2,r1,r3``` because when second instruction is in execution stage the first instruction was in memory stage. Then the third instruction is executed which is 
 ```mul r1,r2,r3``` which is fetched at third cycle of *clk1* and written back at 6th edge of *clk1* and value stored in *r1* will be *12* because when it is in execution stage then first instruction is in write back stage where the *r2* value is updated with *r1+r3* hence multiplicatoin of ```r2*r3``` gives *12*.
 
-- To verify the above functionality i have forced the initial values as discussed above and then generated *clk1 and clk2* with phase difference of 180 Degree and after *30us* of delay at *positive edge of clk1* assertion is made to check whether *mem_wb_aluout* equals to *4* or not. If it is not equal it will generate thr failure report with correct value displaying.
+- To verify the above functionality, Forced the initial values as discussed above and then generated *clk1 and clk2* with phase difference of 180 Degree and 10us period and after *30us* of delay at *positive edge of clk1* assertion is made to check whether *mem_wb_aluout* equals to *4* or not. If it is not equal it will generate thr failure report with correct value displaying.
+- Again need to check the second instruction execution after *5us* if not equals to expected value then gives assertion error.
+- After *5us* last instruction is asserted.
+- Below image represents the failure of first test case. This is *buggy* assertion where i need to check the correctness of *ADD* operation and *WriteBack* stage whether design is able to perform all the five pipeline stage ```fetch=>decode=>execute=>memory=>writeback``` or not so if add instruction is *corrupted* and stores the *buggy* value in *r2* then is should affect ```mul r1,r2,r3``` also. As seen below it corrupts the design as expected. 
 
 <img src="https://user-images.githubusercontent.com/60102705/180502265-f643cc3b-35ac-4bea-aa58-2da7716b2a7c.png" style=" width:540px ; height:360px "  >
 
