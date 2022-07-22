@@ -185,4 +185,4 @@ The updated design is checked in as RV32I.v
 
 #### Is The Verification Complete?
 
-```YES``` , As [Debug Information]()
+```YES``` , As [Debug Information](https://github.com/vyomasystems-lab/challenges-sidhantp1906/blob/master/README.md#debug-information) shows the correctness of design after **BUGS** identified and corrected which were very important to check the functionality of **RISC-V RV32I**.
