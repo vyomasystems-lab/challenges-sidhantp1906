@@ -68,7 +68,8 @@ This shows that observed output does not matches with expected output hence poss
 - Memory location fetched is 0x00000000 which has 0x00308133 i.e., add r2,r1,r3.
 - Expected output mem_wb_aluout is 4.
 - Observed output mem_wb_aluout is 0.                                                                                                                                   
-- This shows that observed output does not matches with expected output hence possible **bug** found.
+
+This shows that observed output does not matches with expected output hence possible **bug** found.
 ##### Test Case3
 - PC Value is 0x00000000.
 - Memory location fetched is 0x00000000 which has 0x00308133 i.e., add r2,r1,r3.
@@ -173,5 +174,9 @@ The updated design is checked in as RV32I.v
 - Below image represents the failure of first test case. This is *buggy* assertion where i need to check the correctness of *ADD* operation and *WriteBack* stage whether design is able to perform all the five pipeline stage ```fetch=>decode=>execute=>memory=>writeback``` or not so if add instruction is *corrupted* and stores the *buggy* value in *r2* then is should affect ```mul r1,r2,r3``` also. As seen below it corrupts the design as expected. 
 
 <img src="https://user-images.githubusercontent.com/60102705/180502265-f643cc3b-35ac-4bea-aa58-2da7716b2a7c.png" style=" width:540px ; height:360px "  >
+
+- Below image represents the failure of second test case. This insertion checks whether if *HALT* is made high then design stops working or not.
+<img src="https://user-images.githubusercontent.com/60102705/180504113-312695df-2f42-4012-b8e0-1baceecebd3f.png" style=" width:540px ; height:360px "  >
+
 
 #### Is The Verification Complete?
