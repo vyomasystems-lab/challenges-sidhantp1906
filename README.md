@@ -18,8 +18,21 @@ The verification environment is setup using [Vyoma's UpTickPro](https://vyomasys
 
 <img src="https://user-images.githubusercontent.com/60102705/180488717-b51b86b1-741e-4da8-9350-320dd270bfcf.png" style=" width:640px ; height:360px "  >
 
+The [CoCoTb](https://www.cocotb.org/) based Python test is developed as explained. The test drives inputs to the Design Under Test (adder module here) which takes in 4-bit inputs *a* and *b* and gives 5-bit output *sum*
 
+The values are assigned to the input port using 
+```
+dut.a.value = 7
+dut.b.value = 5
+```
 
+The assert statement is used for comparing the adder's outut to the expected value.
+
+The following error is seen:
+```
+assert dut.sum.value == A+B, "Adder result is incorrect: {A} + {B} != {SUM}, expected value={EXP}".format(
+                     AssertionError: Adder result is incorrect: 7 + 5 != 2, expected value=12
+```
 
 #### Test Scenario
 #### Bugs Found
