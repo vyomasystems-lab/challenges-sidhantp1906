@@ -14,6 +14,8 @@ This Document presents the verification of RISCV-RV32I which is 32-bit processor
 verification methodology CoCoTb.
 
 #### Verification Environment
+The verification environment is setup using [Vyoma's UpTickPro](https://vyomasystems.com) provided for the hackathon.
+
 #### Test Scenario
 #### Bugs Found
 #### Debug Information
