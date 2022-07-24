@@ -167,8 +167,9 @@ SEQ_1:
           next_state = SEQ_101; //=========>bug ** it should go to seq10 but it goes to seq101 ***********
       end
 ```
+To correct above replace ```next_s = SEQ_101``` with ```next_s = SEQ_10```.
 ##### Bug 1
-The expected traversal of states is ```SEQ_1=>SEQ_10=>SEQ_101=>SEQ_1011``` but here when input 1 is read at first edge of *clk* according to rule it should go to *SEQ_101* state but it goes to *SEQ_10*.
+Here when input 0 is read at second edge of *clk* according to rule it should go to *SEQ_101* state but it goes to *SEQ_10* hence remains in state *SEQ_10* itself forever.
 ```
 SEQ_10:
       begin
@@ -178,6 +179,7 @@ SEQ_10:
           next_state = IDLE;
       end
 ```
+To correct above replace ```next_s = SEQ_10``` with ```next_s = SEQ_101```.
 #### Debug Information 
 #### Verification Strategy
 #### Is The Verification Complete?
