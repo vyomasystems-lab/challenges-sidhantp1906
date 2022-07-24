@@ -122,7 +122,62 @@ For assertion refer below code:
 assert dut.seq_seen.value == 1, "Test Failed sequence should be 1011 hence output = {seen}".format(seen=int(dut.seq_seen.value))
 ```
 #### Test Scenario
+##### Test Case 1
+```
+    dut.inp_bit.value = 0
+    await Timer(10, units = "us")
+    dut.inp_bit.value = 1
+    await Timer(10, units = "us")
+    dut.inp_bit.value = 1
+    await Timer(10, units = "us")
+    dut.inp_bit.value = 1
+    await Timer(10, units = "us")
+```
+##### Test Case 2
+```
+    dut.inp_bit.value = 1
+    await Timer(10, units = "us")
+    dut.inp_bit.value = 1
+    await Timer(10, units = "us")
+    dut.inp_bit.value = 1
+    await Timer(10, units = "us")
+    dut.inp_bit.value = 1
+    await Timer(10, units = "us")
+```
+##### Test Case 3
+```
+    dut.inp_bit.value = 1
+    await Timer(10, units = "us")
+    dut.inp_bit.value = 0
+    await Timer(10, units = "us")
+    dut.inp_bit.value = 1
+    await Timer(10, units = "us")
+    dut.inp_bit.value = 1
+    await Timer(10, units = "us")
+```
 #### Bugs Found
+##### Bug 1
+The expected traversal of states is ```SEQ_1=>SEQ_10=>SEQ_101=>SEQ_1011``` but here when input 1 is read at first edge of *clk* according to rule it should go to *SEQ_10* state but it goes to *SEQ_101*.
+```
+SEQ_1:
+      begin
+        if(inp_bit == 1)
+          next_state = IDLE;
+        else
+          next_state = SEQ_101; //=========>bug ** it should go to seq10 but it goes to seq101 ***********
+      end
+```
+##### Bug 1
+The expected traversal of states is ```SEQ_1=>SEQ_10=>SEQ_101=>SEQ_1011``` but here when input 1 is read at first edge of *clk* according to rule it should go to *SEQ_101* state but it goes to *SEQ_10*.
+```
+SEQ_10:
+      begin
+        if(inp_bit == 1)
+          next_state = SEQ_10; //=========>bug ** it should go to seq101 but it goes to seq10 ***********
+        else
+          next_state = IDLE;
+      end
+```
 #### Debug Information 
 #### Verification Strategy
 #### Is The Verification Complete?
