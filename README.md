@@ -188,6 +188,14 @@ To correct above replace ```next_s = SEQ_10``` with ```next_s = SEQ_101```.
 <img src="https://user-images.githubusercontent.com/60102705/180635083-012a4707-e644-4c53-8470-f555272336ae.png" style=" width:640px ; height:360px "  >
 
 #### Verification Strategy
+- To check whether inputs are read at every positive edge of the *clk* or not and also the state traversal is correct for correct sequence and also for wrong sequence. This assertion shows the sequence driven are *0111, 1111, 1011* for buggy as well as correct FSM so for correct FSM state traversal is as expected and *seq_seen* is made only for *1011*.
+- For the buggy design no sequence is read because of the infinite loop inside the state *SEQ_10* which continuosly remains in its state until sequence is 1 else goes to *idle* state.
+
+Below figure shows the buggy design outputs.
+
+<img src="https://user-images.githubusercontent.com/60102705/180635350-49507b65-cb54-4817-99e8-d95ad9864281.png" style=" width:640px ; height:360px "  >
+
+
 #### Is The Verification Complete?
 ```YES```, As presented above shows the verification strategies of design and how to overcome the issue.
 
