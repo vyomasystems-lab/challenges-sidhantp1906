@@ -45,6 +45,17 @@ assert dut.out.value == dut.inp0.value, "Test Failed :Got {out} expected {in0}".
  assert dut.out.value == dut.inp1.value, "Test Failed :Got {out} expected {in1}".format(out=int(dut.out.value), in1=int(dut.inp1.value))
 ```
 #### Bugs Found
+```
+case(sel)
+      5'b00000: out = inp1; //=======> Bug ** It should be inp0 not inp1****** 
+      5'b00001: out = inp0;  //=======> Bug ** It should be inp1 not inp0****** 
+```
+To overcome above bug we have to replace with below code:
+```
+case(sel)
+      5'b00000: out = inp0; 
+      5'b00001: out = inp1; 
+```
 #### Debug Information
 #### Verification Stractegy
 #### Is The Verification Complete?
