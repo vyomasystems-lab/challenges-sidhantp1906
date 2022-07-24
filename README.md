@@ -16,7 +16,17 @@ The verification environment is setup using [Vyoma's UpTickPro](https://vyomasys
 
 <img src="https://user-images.githubusercontent.com/60102705/180488717-b51b86b1-741e-4da8-9350-320dd270bfcf.png" style=" width:640px ; height:360px "  >
 
-The [CoCoTb](https://www.cocotb.org/) based Python test is developed as explained. The test_MUX drives inputs to the Design Under Test  (MUX) which takes in 5-bit select line *sel* and 2-bit 31 inputs *inp0..inp30 and gives 2-bit output *out*.
+The [CoCoTb](https://www.cocotb.org/) based Python test is developed as explained. The test_MUX drives inputs to the Design Under Test  (MUX) which takes in 5-bit select line *sel* and 2-bit 31 inputs *inp0..inp30 and gives 2-bit output *out*. Below is the code for driving inputs.
+```
+ dut.sel.value = 0
+ dut.inp0.value = 0
+ dut.inp1.value = 1
+ await Timer(2,units = 'us')
+```
+Below is the assertion code which when not satisfied causes error.
+```
+assert dut.out.value == dut.inp0.value, "Test Failed :Got {out} expected {in0}".format(out=int(dut.out.value), in0=int(dut.inp0.value))
+```
 #### Test Scenario
 #### Bugs Found
 #### Debug Information
