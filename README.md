@@ -3,7 +3,6 @@
 ### Table of Content
 - [Abstract](####Abstract)
 - [Verification Environment](####Verification%20Environment)
-- [Verification Strategy](####Verification%20Stractegy)
 - [Test Scenario](####Test%20Scenario)
 - [Bugs Found](####Bugs%20Found)
 - [Debug Information](####Debug%20Information)
@@ -78,6 +77,24 @@ To check the correctnes design based on selection line and output observed so ch
 
 #### Is The Verification Complete?
 ```YES```, As presented above shows the verification strategies of design and how to overcome the issue.
+
+## Sequence 1011 Detector Design Verification
+### Table of Content
+- [Abstract](####Abstract)
+- [Verification Environment](####Verification%20Environment)
+- [Test Scenario](####Test%20Scenario)
+- [Bugs Found](####Bugs%20Found)
+- [Debug Information](####Debug%20Information)
+- [Verification Strategy](####Verification%20Stractegy)
+- [Is The Verification Complete?](####Is%20The%20Verification%20Complete?)
+
+#### Abstract
+#### Verification Environment
+#### Test Scenario
+#### Bugs Found
+#### Debug Information 
+#### Verification Strategy
+#### Is The Verification Complete?
 
 ## RISC-V RV32I Design Verification
 ### Table of Content
