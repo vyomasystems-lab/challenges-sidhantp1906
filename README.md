@@ -10,7 +10,13 @@
 - [Verification Strategy](####Verification%20Stractegy)
 - [Is The Verification Complete?](####Is%20The%20Verification%20Complete?)
 #### Abstract
+This is 31-1 Mux design which works on the basis of selection line as a 5 -bit control input. If sel is 0 then input 0 is passed. 
 #### Verification Environment
+The verification environment is setup using [Vyoma's UpTickPro](https://vyomasystems.com) provided for the hackathon.
+
+<img src="https://user-images.githubusercontent.com/60102705/180488717-b51b86b1-741e-4da8-9350-320dd270bfcf.png" style=" width:640px ; height:360px "  >
+
+The [CoCoTb](https://www.cocotb.org/) based Python test is developed as explained. The test_MUX drives inputs to the Design Under Test  (MUX) which takes in 5-bit select line *sel* and 2-bit 31 inputs *inp0..inp30 and gives 2-bit output *out*.
 #### Test Scenario
 #### Bugs Found
 #### Debug Information
@@ -35,7 +41,7 @@ The verification environment is setup using [Vyoma's UpTickPro](https://vyomasys
 
 <img src="https://user-images.githubusercontent.com/60102705/180488717-b51b86b1-741e-4da8-9350-320dd270bfcf.png" style=" width:640px ; height:360px "  >
 
-The [CoCoTb](https://www.cocotb.org/) based Python test is developed as explained. The test_RV32I drives inputs to the Design Under Test  (RV32I) which takes in 2 clock aa inputs *clk1* and *clk2* and gives 32-bit output *mem_wb_aluout*.
+The [CoCoTb](https://www.cocotb.org/) based Python test is developed as explained. The test_RV32I drives inputs to the Design Under Test  (RV32I) which takes in 2 clock as inputs *clk1* and *clk2* and gives 32-bit output *mem_wb_aluout*.
 
 The values are assigned to the input port using 
 ```
