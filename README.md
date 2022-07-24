@@ -28,6 +28,22 @@ Below is the assertion code which when not satisfied causes error.
 assert dut.out.value == dut.inp0.value, "Test Failed :Got {out} expected {in0}".format(out=int(dut.out.value), in0=int(dut.inp0.value))
 ```
 #### Test Scenario
+##### Test Case 1
+```
+ dut.sel.value = 0
+ dut.inp0.value = 0
+ dut.inp1.value = 1
+ await Timer(2,units = 'us')
+ assert dut.out.value == dut.inp0.value, "Test Failed :Got {out} expected {in0}".format(out=int(dut.out.value), in0=int(dut.inp0.value))
+```
+##### Test Case 2
+```
+ dut.sel.value = 1
+ dut.inp0.value = 0
+ dut.inp1.value = 1
+ await Timer(2,units = 'us')
+ assert dut.out.value == dut.inp1.value, "Test Failed :Got {out} expected {in1}".format(out=int(dut.out.value), in1=int(dut.inp1.value))
+```
 #### Bugs Found
 #### Debug Information
 #### Verification Stractegy
