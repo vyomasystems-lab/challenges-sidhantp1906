@@ -77,6 +77,7 @@ To check the correctnes design based on selection line and output observed so ch
 <img src="https://user-images.githubusercontent.com/60102705/180633799-f881eb9f-ce4f-45d2-92b3-daf1b73d8eb8.png" style=" width:640px ; height:360px "  >
 
 #### Is The Verification Complete?
+```YES```, As presented above shows the verification strategies of design and how to overcome the issue.
 
 ## RISC-V RV32I Design Verification
 ### Table of Content
