@@ -168,7 +168,7 @@ SEQ_1:
       end
 ```
 To correct above replace ```next_s = SEQ_101``` with ```next_s = SEQ_10```.
-##### Bug 1
+##### Bug 2
 Here when input 0 is read at second edge of *clk* according to rule it should go to *SEQ_101* state but it goes to *SEQ_10* hence remains in state *SEQ_10* itself forever.
 ```
 SEQ_10:
@@ -181,6 +181,12 @@ SEQ_10:
 ```
 To correct above replace ```next_s = SEQ_10``` with ```next_s = SEQ_101```.
 #### Debug Information 
+1). For Sequence 1011. 
+<img src="https://user-images.githubusercontent.com/60102705/180635035-16b46046-7e52-447f-9a18-65542ffd8229.png" style=" width:640px ; height:360px "  >
+
+2). For Sequence 1111.
+<img src="https://user-images.githubusercontent.com/60102705/180635083-012a4707-e644-4c53-8470-f555272336ae.png" style=" width:640px ; height:360px "  >
+
 #### Verification Strategy
 #### Is The Verification Complete?
 ```YES```, As presented above shows the verification strategies of design and how to overcome the issue.
