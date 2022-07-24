@@ -57,7 +57,25 @@ case(sel)
       5'b00001: out = inp1; 
 ```
 #### Debug Information
+Designed is corrected as per the bugs observed.Below is the log for corrected design.
+```
+  2000.00ns INFO     test_bmux passed
+  2000.00ns INFO     running test_bmux1 (2/2)
+  4000.00ns INFO     test_bmux1 passed
+  4000.00ns INFO     **************************************************************************************
+                     ** TEST                          STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                     **************************************************************************************
+                     ** test_bmux.test_bmux            PASS        2000.00           0.00    3102297.41  **
+                     ** test_bmux.test_bmux1           PASS        2000.00           0.00    8701879.87  **
+                     **************************************************************************************
+                     ** TESTS=2 PASS=2 FAIL=0 SKIP=0               4000.00           0.01     524616.15  **
+                     **************************************************************************************
+                     
+```
 #### Verification Stractegy
+To check the correctnes design based on selection line and output observed so changed the inputs of first to line to check whether output is getting same as selects line selects the input so when slect line is 0 then inp0 is tranfered as inp0 is inp1 in buggy design then inp1 is transfered hence make output assertion fail. It is same for the case when select line is 1. 
+<img src="https://user-images.githubusercontent.com/60102705/180633799-f881eb9f-ce4f-45d2-92b3-daf1b73d8eb8.png" style=" width:640px ; height:360px "  >
+
 #### Is The Verification Complete?
 
 ## RISC-V RV32I Design Verification
