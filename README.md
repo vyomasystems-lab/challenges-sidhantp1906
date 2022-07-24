@@ -15,7 +15,7 @@ The verification environment is setup using [Vyoma's UpTickPro](https://vyomasys
 
 <img src="https://user-images.githubusercontent.com/60102705/180488717-b51b86b1-741e-4da8-9350-320dd270bfcf.png" style=" width:640px ; height:360px "  >
 
-The [CoCoTb](https://www.cocotb.org/) based Python test is developed as explained. The test_MUX drives inputs to the Design Under Test  (MUX) which takes in 5-bit select line *sel* and 2-bit 31 inputs *inp0..inp30 and gives 2-bit output *out*. Below is the code for driving inputs.
+The [CoCoTb](https://www.cocotb.org/) based Python test is developed as explained. The test_MUX drives inputs to the Design Under Test  (MUX) which takes in 5-bit select line *sel* and 2-bit 31 inputs *inp0..inp30* and gives 2-bit output *out*. Below is the code for driving inputs.
 ```
  dut.sel.value = 0
  dut.inp0.value = 0
@@ -78,6 +78,7 @@ To check the correctnes design based on selection line and output observed so ch
 #### Is The Verification Complete?
 ```YES```, As presented above shows the verification strategies of design and how to overcome the issue.
 
+
 ## Sequence 1011 Detector Design Verification
 ### Table of Content
 - [Abstract](####Abstract)
@@ -89,12 +90,43 @@ To check the correctnes design based on selection line and output observed so ch
 - [Is The Verification Complete?](####Is%20The%20Verification%20Complete?)
 
 #### Abstract
+This is design of non-overlapping sequence detector which detects the input stream of *1011*. When stream 1011 is detected then output *seq_seen* is made high. This is design in moore machine FSM style.
 #### Verification Environment
+The verification environment is setup using [Vyoma's UpTickPro](https://vyomasystems.com) provided for the hackathon.
+
+<img src="https://user-images.githubusercontent.com/60102705/180488717-b51b86b1-741e-4da8-9350-320dd270bfcf.png" style=" width:640px ; height:360px "  >
+
+The [CoCoTb](https://www.cocotb.org/) based Python test is developed as explained. The test_seq_detect_1011 drives inputs to the Design Under Test  (seq_detect_1011) which takes in 1-bit input *inp_bit* and *clk , reset* as synchronus inputs and gives 1-bit output *seq_seen*. Below is the code for driving inputs.
+```
+clock = Clock(dut.clk, 10, units="us")  # Create a 10us period clock on port clk
+    cocotb.start_soon(clock.start())        # Start the clock
+
+    # reset
+    dut.reset.value = 1
+    await FallingEdge(dut.clk)  
+    dut.reset.value = 0
+    await FallingEdge(dut.clk)
+
+    cocotb.log.info('#### CTB: Develop your test here! ######')
+    dut.inp_bit.value = 1
+    await Timer(10, units = "us")
+    dut.inp_bit.value = 0
+    await Timer(10, units = "us")
+    dut.inp_bit.value = 1
+    await Timer(10, units = "us")
+    dut.inp_bit.value = 1
+    await Timer(10, units = "us")
+```
+For assertion refer below code:
+```
+assert dut.seq_seen.value == 1, "Test Failed sequence should be 1011 hence output = {seen}".format(seen=int(dut.seq_seen.value))
+```
 #### Test Scenario
 #### Bugs Found
 #### Debug Information 
 #### Verification Strategy
 #### Is The Verification Complete?
+```YES```, As presented above shows the verification strategies of design and how to overcome the issue.
 
 ## RISC-V RV32I Design Verification
 ### Table of Content
